@@ -1,0 +1,55 @@
+.product_wrapper
+  %header
+    = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img"
+  .product
+    .product__title
+      購入内容の確認
+    .product__info
+      .product__info__inner-content
+        .product__info__inner-content__image
+          = image_tag 'adidas_shoes.jpg', height: '148', width: '148'
+        .product__info__inner-content__name
+          新品 アディダス GLX 4 W ランニング シューズ ブラック × ピンク
+        .product__info__inner-content__subtotal
+          .product__info__inner-content__subtotal__price
+            ¥3,980
+          .product__info__inner-content__subtotal__delivery-fee
+            %p 送料込み
+        .product__info__inner-content__point
+          ポイントはありません
+        .product__info__inner-content__account
+          .product__info__inner-content__account__text
+            支払い金額
+          .product__info__inner-content__account__price
+            %p ¥ 3,980
+        .product__info__inner-content__purchase-btn
+          購入する
+    .product__address
+      .product__address__inner-content
+        .product__address__inner-content__heading
+          配送先
+        .product__address__inner-content__info
+          .product__address__inner-content__info__text
+            〒123-456
+            %br
+            東京都 渋谷区神南 1-2-3
+            %br
+            目瑠可里 太郎
+          .product__address__inner-content__info__fix
+            変更する
+            %i >
+    .product__payment
+      .product__payment__inner-content
+        .product__payment__inner-content__heading
+          支払い方法
+        .product__payment__inner-content__info
+          .product__payment__inner-content__info__text
+            ************1234
+            %br
+            01 / 20
+          .product__payment__inner-content__info__figure
+            = image_tag 'jcb-logo.svg',size: "26x20" , class: "credit__logo-img"
+          .product__payment__inner-content__info__fix
+            変更する
+            %i >
+  = render 'products/product_footer'

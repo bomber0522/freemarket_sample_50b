@@ -3,7 +3,11 @@ class UsersController < ApplicationController
     render layout: 'application-off-header-footer.html.haml'
   end
 
+  def create
+
+  end
+
   def show
-    
+
   end
 end

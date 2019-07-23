@@ -304,13 +304,22 @@
           #product_delivery_fee_payer,
           #product_delivery_type,
           #product_delivery_days,
-          #product_delibery_from_area {
+          #product_delivery_from_area {
             @extend .form;
             width: 100%;
             height: 100%;
             padding: 0 16px;
             font-size: 16px;
             line-height: 1.5;
+            cursor: pointer;
+          }
+
+          .product_delivery_from_area {
+            width: 100%;
+            height: 100%;
+            padding: 0 16px;
+            font-size: 16px;
+            line-height: 1.0;
             cursor: pointer;
           }
 
