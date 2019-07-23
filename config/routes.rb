@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :users , only: [:new,:show]
   resources :user_profiles, only: [:new, :create, :edit, :update]
   resources :signups, only: [:index, :new, :show]
+  resources :cards, only: [:index,:new]
 end

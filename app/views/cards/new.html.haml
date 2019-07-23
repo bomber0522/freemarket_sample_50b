@@ -1,0 +1,11 @@
+.header_cards
+  = image_tag "logo.svg",  class: "header__logo-img_cards"
+.header_cards2
+  = image_tag 'signup_header4.png', class: "header__bar-img_cards"
+.user_mypage
+  .user_mypage__container
+  .credit_3
+    .credit__title
+      %h2 お支払い方法
+    = render partial:'cards/cards_detail', locals: { move_from_action: "new" }
+  = render partial:'products/product_footer'

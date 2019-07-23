@@ -151,14 +151,14 @@
     color: $fa_icon_gray;
     position: absolute;
     top: 278px;
-    left: 275px;
+    left: 265px;
   }
 
   i.fa_icon_2 {
     color: $fa_icon_gray;
     position: absolute;
     top: 354px;
-    left: 275px;
+    left: 265px;
   }
 
   .credit__box_question {
@@ -202,9 +202,10 @@ a {
 }
 
 // new
-header {
-  height: 100px;
-  padding-top: 40px;
+.header_cards {
+  padding-top: 20px;
+  margin: 0 auto;
+  margin-left: 630px;
 
   .header__logo-img {
     display: block;
@@ -215,12 +216,40 @@ header {
   }
 }
 
+.header__logo-img_cards{
+  height: 50px;
+  width: 150px;
+}
+
+.header__bar-img_cards{
+  height: 70px;
+  width: 550px;
+
+}
+
+.header_cards2{
+  width: 700px;
+  height: 80px;
+  padding-top: 20px;
+  margin: 0 auto;
+  margin-right: 280px;
+}
+
+
 .credit_3 {
   background-color: $white;
   width: 700px;
-  height: 730px;
+  height: 770px;
   margin-top: 31px;
   margin: 0 auto;
+
+.credit__title{
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 0.09px solid $border_gray;
+  font-size: 24px;
+  padding: 20px;  
+}
 
   .credit__box_list {
     position: relative;
@@ -282,7 +311,7 @@ header {
   i.fa_icon_2 {
     color: $fa_icon_gray;
     position: absolute;
-    top: 342px;
+    top: 360px;
     left: 265px;
   }
 
@@ -310,6 +339,7 @@ header {
     p {
       color: $light_blue;
       display: inline-block;
+      margin-bottom: 40px;
 
       font: {
         size: 14px;
@@ -384,7 +414,7 @@ header {
   margin: {
     bottom: 20px;
     top: 10px;
-    left: 20px;
+    // left: 20px;
   }
 }
 
