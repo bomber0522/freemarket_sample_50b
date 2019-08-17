@@ -1,55 +1,72 @@
-.product_wrapper
+.peoduct_wrapper
   %header
-    = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img"
+    = link_to (root_path) do
+      = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img"
   .product
     .product__title
       購入内容の確認
     .product__info
       .product__info__inner-content
         .product__info__inner-content__image
-          = image_tag 'adidas_shoes.jpg', height: '148', width: '148'
+          = image_tag @product.product_images.first.image_url.to_s, height: '148', width: '148'
         .product__info__inner-content__name
-          新品 アディダス GLX 4 W ランニング シューズ ブラック × ピンク
+          %p
+            = @product.name
         .product__info__inner-content__subtotal
           .product__info__inner-content__subtotal__price
-            ¥3,980
-          .product__info__inner-content__subtotal__shipping-fee
-            %p 送料込み
+            %p
+              = "¥ #{@product.price.to_s(:delimited)}"
+          .product__info__inner-content__subtotal__delivery-fee
+            %p
+              = @product.shipping_fee_payer
         .product__info__inner-content__point
           ポイントはありません
         .product__info__inner-content__account
           .product__info__inner-content__account__text
             支払い金額
           .product__info__inner-content__account__price
-            %p ¥ 3,980
-        .product__info__inner-content__purchase-btn
-          購入する
+            %p
+              = "¥ #{(@product.price - 0).to_s(:delimited)}"
+        = form_tag(pay_product_purchases_path(@product), method: :post) do
+          = submit_tag "購入する", class: 'product__info__inner-content__purchase-btn'
     .product__address
       .product__address__inner-content
         .product__address__inner-content__heading
           配送先
         .product__address__inner-content__info
           .product__address__inner-content__info__text
-            〒123-456
+            = "〒" + current_user.profile.zipcode
             %br
-            東京都 渋谷区神南 1-2-3
+            = Prefecture.where(id: current_user.profile.address_prefecture)[0].attributes[:name]
+            = current_user.profile.address_city
+            = current_user.profile.address_street_number
+            = current_user.profile.address_building_name
             %br
-            目瑠可里 太郎
-          .product__address__inner-content__info__fix
-            変更する
+            = current_user.profile.family_name
+            = current_user.profile.last_name
+          = link_to address_product_purchases_path(@product) do
+            .product__address__inner-content__info__fix
+              変更する
             %i >
     .product__payment
       .product__payment__inner-content
         .product__payment__inner-content__heading
           支払い方法
-        .product__payment__inner-content__info
-          .product__payment__inner-content__info__text
-            ************1234
-            %br
-            01 / 20
-          .product__payment__inner-content__info__figure
-            = image_tag 'jcb-logo.svg',size: "26x20" , class: "credit__logo-img"
-          .product__payment__inner-content__info__fix
-            変更する
-            %i >
+        - if @default_card_information
+          .product__payment__inner-content__info
+            .product__payment__inner-content__info__text
+              = "************" + @default_card_information.last4
+              %br
+              = get_card_exp(@default_card_information)
+            .product__payment__inner-content__info__figure
+              = get_cards_brand_logo(@default_card_information.brand)
+          = link_to card_index_product_purchases_path(@product) do
+            .product__payment__inner-content__info__fix
+              変更する
+              %i >
+        - else
+          = link_to card_product_purchases_path(@product), data: {turbolinks: false} do
+            .product__payment__inner-content__info__fix
+              追加する
+              %i >
   = render 'products/product_footer'
