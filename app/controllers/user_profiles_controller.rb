@@ -1,3 +1,4 @@
+
 class UserProfilesController < ApplicationController
   before_action :authenticate_user!
 

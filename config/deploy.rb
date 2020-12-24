@@ -4,7 +4,7 @@ lock "~> 3.11.0"
 set :linked_files, %w{ config/master.key }
 
 set :application, 'freemarket_sample_50b'
-set :repo_url,  'git@github.com:bomber0522/freemarket_sample_50b.git'
+set :repo_url,  'git@github.com:tackernao0522/freemarket_sample_50b.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -55,7 +55,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'
 
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/nika.pem']
+                  keys: ['~/.ssh/taka_pepe.pem']
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
